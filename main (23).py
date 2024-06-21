@@ -1,0 +1,55 @@
+def main():
+  # Initialize variables
+  total_gross_pay = 0.0
+  employee_count = 0
+
+  # Prompt user to start the program
+  continue_prompt = input("Do you want to enter employee data? (Yes/No): ").strip().lower()
+
+  # Continue while loop if user answers 'yes'
+  while continue_prompt == "yes":
+      # Prompt for employee data
+      last_name = input("Enter employee's last name: ")
+      hours_worked = float(input("Enter hours worked: "))
+      rate_of_pay = float(input("Enter rate of pay: "))
+
+      # Calculate gross pay
+      if hours_worked <= 40:
+          gross_pay = hours_worked * rate_of_pay
+      else:
+          regular_pay = 40 * rate_of_pay
+          overtime_pay = (hours_worked - 40) * (rate_of_pay * 1.5)
+          gross_pay = regular_pay + overtime_pay
+
+      # Display employee's last name and gross pay
+      print(f"Employee: {last_name}, Gross Pay: ${gross_pay:.2f}")
+
+      # Accumulate total gross pay and increment employee count
+      total_gross_pay += gross_pay
+      employee_count += 1
+
+      # Prompt user again to continue or not
+      loop_prompt = input("Do you want to enter data for another employee? (Yes/No): ").strip().lower()
+
+      # If user says 'no' to continue the loop, break out
+      if loop_prompt != "yes":
+          break
+
+      # Prompt user again to continue the whole program
+      continue_prompt = input("Do you want to enter more employee data? (Yes/No): ").strip().lower()
+
+  # Calculate average pay
+  if employee_count > 0:
+      average_pay = total_gross_pay / employee_count
+  else:
+      average_pay = 0.0
+
+  # Display summary
+  print("\nSummary:")
+  print(f"Total Gross Pay: ${total_gross_pay:.2f}")
+  print(f"Number of Employees: {employee_count}")
+  print(f"Average Pay: ${average_pay:.2f}")
+
+# Run the main function
+if __name__ == "__main__":
+  main()

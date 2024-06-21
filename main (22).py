@@ -1,0 +1,30 @@
+def main():
+    # Initial prompt
+    start_program = input("Do you want to start the program? (Yes/No): ")
+
+    # Initialize student count
+    student_count = 0
+
+    while start_program.lower() == "yes":
+        # Input last name and exam scores
+        last_name = input("Enter your last name: ")
+        score1 = float(input("Enter the first exam score: "))
+        score2 = float(input("Enter the second exam score: "))
+
+        # Calculate average
+        average_score = (score1 + score2) / 2
+
+        # Display last name and average score
+        print(f"{last_name}: Average Score = {average_score:.2f}")
+
+        # Increment student count
+        student_count += 1
+
+        # Ask if user wants to continue
+        start_program = input("Do you want to enter data for another student? (Yes/No): ")
+
+    # Display the count of students who entered data
+    print(f"Total number of students who entered data: {student_count}")
+
+if __name__ == "__main__":
+    main()
